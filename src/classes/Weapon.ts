@@ -86,8 +86,8 @@ export class TidalTrident extends Weapon {
   imageUrl = "https://metadata.lootheroes.io/common/gear/water_weapon_epic.png";
 }
 export class MoltenGreataxe extends Weapon {
-  name = "Molten Axe";
-  id = "molten_axe";
+  name = "Molten GreatAxe";
+  id = "molten_greataxe";
   attack = 40;
   price = 100;
   levelReq = 3;
