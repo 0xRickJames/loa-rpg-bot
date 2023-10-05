@@ -123,7 +123,7 @@ export async function powerUpCheckBoss(boss_name: string) {
       return boss;
     }
     case "full_meta_alchemist": {
-      const boss = new Fighter("Full Metra Alchemist");
+      const boss = new Fighter("Full Meta Alchemist");
       boss.hp = 6000;
       boss.attack = 200;
       boss.armor = 0.5;
