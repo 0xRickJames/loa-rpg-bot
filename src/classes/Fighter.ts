@@ -48,6 +48,7 @@ export class Fighter extends Base {
   equippedItems: Item[] = [];
   /** Fighter's Skill */
   skill?: Skill;
+  skillActive?: boolean;
   /** Fighter's Spell */
   spell?: Spell;
   hasSpell?: boolean;

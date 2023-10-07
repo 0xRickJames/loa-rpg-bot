@@ -9,6 +9,7 @@ import {
   updateRaidWins,
   updateXP,
 } from "../modules/updateUserData";
+import { Demoralize } from "./Skill";
 
 /**
  * Battle handles all battle simulation using discord.js's embed.
@@ -77,12 +78,20 @@ export class Battle extends BaseBattle {
       const opponentSkillIntercept = opponent.skill?.intercept();
 
       if (playerSkillIntercept) {
+        if (player.skill?.name === "Demoralize" && opponent.skillActive) {
+          opponent.skillActive = false;
+          opponent.skill?.close(opponent, player);
+        }
         const skillEmbed = player.skill!.use(player, opponent);
         await this.updateEmbed(skillEmbed);
         this.showBattle && (await this.sleep());
       }
 
       if (opponentSkillIntercept) {
+        if (opponent.skill?.name === "Demoralize" && player.skillActive) {
+          player.skillActive = false;
+          player.skill?.close(player, opponent);
+        }
         const skillEmbed = opponent.skill!.use(opponent, player);
         await this.updateEmbed(skillEmbed);
         this.showBattle && (await this.sleep());

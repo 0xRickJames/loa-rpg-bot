@@ -225,6 +225,7 @@ export class CombatTactics extends Skill {
   use(p1: Fighter, p2: Fighter) {
     p1.attack *= 2;
     p1.armor *= 2;
+    p1.skillActive = true;
 
     const embed = new EmbedBuilder()
       .setTitle("Combat Tactics Activated")
@@ -244,6 +245,7 @@ export class CombatTactics extends Skill {
   close(p1: Fighter, p2: Fighter) {
     p1.attack /= 2;
     p1.armor /= 2;
+    p1.skillActive = false;
   }
 }
 export class StunAttack extends Skill {
@@ -257,6 +259,7 @@ export class StunAttack extends Skill {
   use(p1: Fighter, p2: Fighter) {
     p2.attack /= 10;
     p2.armor /= 10;
+    p1.skillActive = true;
 
     const embed = new EmbedBuilder()
       .setTitle("Stun Attack Activated!")
@@ -278,6 +281,7 @@ export class StunAttack extends Skill {
   close(p1: Fighter, p2: Fighter) {
     p2.attack *= 10;
     p2.armor *= 10;
+    p1.skillActive = false;
   }
 }
 export class Grenade extends Skill {

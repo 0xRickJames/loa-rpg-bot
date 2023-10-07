@@ -36,6 +36,8 @@ export const battle: Command = {
     await updateGold(player1_data, 1);
     const member1 = interaction.guild!.members.cache.get(player1.id);
     const author = await powerUpCheck(member1!, player1.id);
+    const opponents: Fighter[] = [];
+    let oppMultiplier = 0;
 
     for (let i = 1; i <= allowedOpponents; i++) {
       if (interaction.options.getUser(`opponent${i}`) != null) {
